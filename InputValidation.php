@@ -21,7 +21,7 @@ class InputValidation
   public function __construct($value = null, string $encoding = 'UTF-8')
   {
     // init
-    if (is_string($value)) {
+    if (isset($value) && is_string($value)) {
       $this->value = trim($value);
     } else {
       $this->value = $value;
