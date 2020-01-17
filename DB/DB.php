@@ -69,13 +69,9 @@ class DB
    */
   public static function flashSql(PDO $dbh, string $sql, array $bind_data = []): PDOStatement
   {
-    if ($dbh instanceof PDO) {
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute($bind_data);
-      return $stmt;
-    } else {
-      throw new RuntimeException('DB connection does not exist.');
-    }
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($bind_data);
+    return $stmt;
   }
 
   /**
